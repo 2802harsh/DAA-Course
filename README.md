@@ -6,9 +6,9 @@ This repository contains the Assignments of Group (IIT2019105,106,107)
 **Team Members**
 |   Enrollment No.  |   Name   | GithubId |
 |   --------------  |   ----   | -------- |
-|    IIT2019005  |  Harshdeep Singh Pruthi  | [2802harsh](https://github.com/2802harsh) |
-|    IIT2019006  |   Jaya Ram Naik | [Zeroop-bot](https://github.com/Zeroop-bot) | 
-|    IIT2019007  |   Shivansh Gupta | [shivanshgupta612](https://github.com/shivanshgupta612)  |
+|    IIT2019105  |  Harshdeep Singh Pruthi  | [2802harsh](https://github.com/2802harsh) |
+|    IIT2019106  |   Jaya Ram Naik | [Zeroop-bot](https://github.com/Zeroop-bot) | 
+|    IIT2019107  |   Shivansh Gupta | [shivanshgupta612](https://github.com/shivanshgupta612)  |
 
 **Group No-**"18"
 
