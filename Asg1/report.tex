@@ -154,12 +154,22 @@ Here, one more important thing is that in the first case, we require the arrays 
 \caption{enhancedMergeSort}
 \end{algorithm}
 
+\section{Complexity}
+\subsection{Time complexity}
+In the algorithm , the input array is divided into two halves each time it is processed.
+As such it can be expressed with following recurrence relation,
+\begin{center} T(n) = 2T(n/2) + $\theta$(n).\end{center}
+Hence, time complexity for the same is O(nlog(n)).
+
+\subsection{Space complexity}
+In the process of counting inversions, we are also sorting the input array as the algorithm demands this. If we wish to retain the original array we do need an auxiliary array which is the copy of the input array .\\ Thus, the space complexity will be O(n) .
 
 \section*{Acknowledgment}
 
 
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+\bibitem{b1} https://www.geeksforgeeks.org/\\
+\bibitem{b2}  https://www.stackoverflow.com/
 \end{thebibliography}
 \vspace{12pt}
 
