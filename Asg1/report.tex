@@ -83,46 +83,77 @@ Now, suppose we want to count the number of inversions inside the array A. Now a
 Here, one more important thing is that in the first case, we require the arrays \textbf{L} and \textbf{R} to be sorted. To achieve that, the algorithm must sort them. In other words, after applying the algorithm to both L and R, they become sorted. To sort \textbf{A} we just merge the two sorted arrays \textbf{L} and \textbf{R} into \textbf{A}.
 
 \section{\textbf{Pseudo Code}}
+\noindent We will be creating two functions: \textbf{enhancedMergeSort} and \textbf{mergeTwoArrays}. The former will divide up the array recursively into halves and call the latter function for these divided arrays and the latter function will sort the arrays and in the process return the Inversion Count which is ultimately added up to return the final answer.
+
+
+\begin{algorithm}
+\DontPrintSemicolon
+
+    \KwData{$\bm{arr}$: The Array\\
+         $\bm{beg}$: Start iterator\\
+         $\bm{mid}$: Middle iterator\\
+         $\bm{end}$: End iterator\\}
+  \KwResult{Returns the total number of inversions in the procedure of merging two arrays $\bm{arr[beg...mid]}$ and $\bm{arr[mid+1...end]}$}
+  $i,k=beg$\\
+  $j=end$\\
+  $newarr$\\
+  \While{$i<mid$ AND $j<=end$}
+  {
+    \tcc{No Inversion}
+    \If{$arr[i]<arr[j]$}
+    {
+        newarr[k]=arr[i]\\
+        increment k,i
+    }
+    \tcc{mid-i inversions}
+    \Else{
+        newarr[k]=arr[j]\\
+        invCount+= $mid-i$\\
+        increment k,j
+    }
+  }
+  \While{$i<mid$}{
+    temp[k] = arr[i]\\
+    increment k,i
+  }
+  \While{$j,end$}{
+    temp[k] = arr[j]\\
+    increment k,j
+  }
+  it = beg
+\tcc{Copy all the elements of newarr into arr}
+  \While{$it < end$}{
+    arr[it] = newarr[it]
+    increment it
+  }
+  return $invCount$
+\caption{mergeTwoArrays}
+\end{algorithm}
 
 \begin{algorithm}
 \DontPrintSemicolon
   
-  \KwData{L:Left array\\
-         R:Right array\\
-         lenL:Length of first array\\
-         lenR:Length of second array}
-  \KwResult{Returns number of inversions where first element in L and second in R}
-  \KwData{Testing set $x$}
-  $\sum_{i=1}^{\infty} := 0$ \tcp*{this is a comment}
-  \tcc{Now this is an if...else conditional loop}
-  \If{Condition 1}
+  \KwData{$\bm{arr}$: The Array\\
+         $\bm{beg}$: Start iterator\\
+         $\bm{end}$: End iterator\\}
+  \KwResult{Returns the total number of inversions in the array arr from $\bm{beg}$ to $\bm{end}$}
+  $mid, invCount=0$\\
+  \If{$end>beg$}
     {
-        Do something    \tcp*{this is another comment}
-        \If{sub-Condition}
-        {Do a lot}
-    }
-    \ElseIf{Condition 2}
-    {
-    	Do Otherwise \;
-        \tcc{Now this is a for loop}
-        \For{sequence}    
-        { 
-        	loop instructions
-        }
-    }
-    \Else
-    {
-    	Do the rest
+        mid = (beg+end)/2
+        
+        \tcc{Call recursively and add returned value to invCount}
+        invCount += enhancedMergeSort(arr,left,mid)\\
+        invCount += enhancedMergeSort(arr,mid+1,right)
+        \\
+        \tcc{Finally merge these divided arrays up using the merge function which also return inversions count for this step}
+        invCount += mergeTwoArrays(arr,left,mid+1,right)
     }
     
-    \tcc{Now this is a While loop}
-   \While{Condition}
-   {
-   		Do something\;
-   }
-
-\caption{Example code}
+    return $invCount$\\
+\caption{enhancedMergeSort}
 \end{algorithm}
+
 
 \section*{Acknowledgment}
 
