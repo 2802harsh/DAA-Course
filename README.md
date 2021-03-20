@@ -35,11 +35,12 @@ g++ code.cpp
 
 __Input__
 ```
-Sample Input
+6
+5 4 9 7 2 3
 ```
 __Output__
 ```
-Sample Output
+Inversion Count of the Array is : 10
 ```
 
 ---
