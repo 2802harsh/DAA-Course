@@ -116,8 +116,8 @@ Here, one more important thing is that in the first case, we require the arrays 
 \end{block}
 \end{frame}
 
-\section{\textbf{Pseudo Code}}
-\begin{frame}{Pseudo Code}
+\section{Pseudo Code}
+\begin{frame}{\textbf{Pseudo Code}}
 \fontsize{8pt}{8}\selectfont
 \begin{columns}
 
@@ -179,8 +179,28 @@ $\bm{end}$: End iterator\\
 \end{frame}
 
 \section{Time Complexity}
+\begin{frame}{\textbf{Time Complexity}}
+In the \textbf{Divide and Conquer} algorithm , the input array is divided into two halves each time it is processed.
+As such it can be expressed with following recurrence relation,
+\begin{center} T(n) = 2T(n/2) + $\theta$(n).\end{center}
+    \textbf{O(N log(N))}
+    \begin{figure}[htbp]
+    % \center
+     \includegraphics[width=0.55\textwidth]{timeComplexity.png}\\
+\end{figure}
+    
+\end{frame}
+
 
 \section{Space Complexity}
+\begin{frame}{\textbf{Time Complexity}}
+    \textbf{O(N)}
+    \begin{figure}[htbp]
+    % \center
+     \includegraphics[width=0.85\textwidth]{spaceComplexity.png}\\
+\end{figure}
+    
+\end{frame}
 
 
 \section{References}

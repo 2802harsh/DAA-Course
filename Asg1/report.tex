@@ -36,7 +36,7 @@ We have discussed in detail the Divide and Conquer Approach for this problem and
 \end{abstract}
 
 \noindent \begin{IEEEkeywords}
-Inversion, Divide and Conquer, Merge Sort
+Divide and Conquer, Enhanced Merge Sort, Inversions, Sorting
 \end{IEEEkeywords}
 
 \section{\textbf{Introduction}}
@@ -83,6 +83,19 @@ Now, suppose we want to count the number of inversions inside the array A. Now a
 Here, one more important thing is that in the first case, we require the arrays \textbf{L} and \textbf{R} to be sorted. To achieve that, the algorithm must sort them. In other words, after applying the algorithm to both L and R, they become sorted. To sort \textbf{A} we just merge the two sorted arrays \textbf{L} and \textbf{R} into \textbf{A}.
 
 \section{\textbf{Pseudo Code}}
+\begin{algorithm}
+\While{$i < N$}{
+    \While{$j < N$}{
+        \If{$i< j$ AND $A[i] > A[j]$}{
+            increment invCount\\
+            increment j
+        }
+    }
+    increment i
+}
+\caption{Naive Approach}
+\end{algorithm}
+\noindent \textbf{Divide and Conquer Approach}\\
 \noindent We will be creating two functions: \textbf{enhancedMergeSort} and \textbf{mergeTwoArrays}. The former will divide up the array recursively into halves and call the latter function for these divided arrays and the latter function will sort the arrays and in the process return the Inversion Count which is ultimately added up to return the final answer.
 
 
@@ -146,7 +159,7 @@ Here, one more important thing is that in the first case, we require the arrays 
         invCount += enhancedMergeSort(arr,left,mid)\\
         invCount += enhancedMergeSort(arr,mid+1,right)
         \\
-        \tcc{Finally merge these divided arrays up using the merge function which also return inversions count for this step}
+        \tcc{Merge these arrays up using the merge function which also returns the inversion count of the process}
         invCount += mergeTwoArrays(arr,left,mid+1,right)
     }
     
@@ -154,22 +167,33 @@ Here, one more important thing is that in the first case, we require the arrays 
 \caption{enhancedMergeSort}
 \end{algorithm}
 
-\section{Complexity}
+\section{\textbf{Complexity Analysis}}
 \subsection{Time complexity}
-In the algorithm , the input array is divided into two halves each time it is processed.
+\noindent In the \textbf{Naive Approach}, for any index $\bm{i}$, there are \textbf{N-i} iterations. Thus the total number of iterations will be the sum of \textbf{N,N-1,N-2,...1}, thus making the Time Complexity of theorder of O($N^2$).\\
+In the \textbf{Divide and Conquer} algorithm , the input array is divided into two halves each time it is processed.
 As such it can be expressed with following recurrence relation,
 \begin{center} T(n) = 2T(n/2) + $\theta$(n).\end{center}
-Hence, time complexity for the same is O(nlog(n)).
+Now assuming that at each step the array is divided into exactly two halves, the maximum depth we will get will be $log_2(N)$\\
+Hence, time complexity for the same is \begin{center} \textbf{O(Nlog(N))} \end{center}
+\begin{figure}[htbp!]
+\includegraphics[width=0.5\textwidth]{timeComplexity.png}
+\caption{Time Complexity : O(Nlog(N))}
+\label{Time Complexity}
+\end{figure}
 
 \subsection{Space complexity}
-In the process of counting inversions, we are also sorting the input array as the algorithm demands this. If we wish to retain the original array we do need an auxiliary array which is the copy of the input array .\\ Thus, the space complexity will be O(n) .
-
-\section*{Acknowledgment}
-
+\noindent In the \textbf{Divide and Conquer} algorithm, in process of counting inversions, we are also sorting the input array as the algorithm demands this. If we wish to retain the original array we do need an auxiliary array which is the copy of the input array .\\ Thus, the space complexity will be O(N) .\\
+The space complexity of \textbf{Naive Approach} would also be O(N). But it must be noted that in actual practice the spaced used by Naive Approach would be slightly less than that used by the Divide and Conquer Approach because although its order is still O(N), the Recursive calls do fill up the Function's memory stack\\
+\begin{figure}[htbp]
+\includegraphics[width=0.5\textwidth]{spaceComplexity.png}
+\caption{Space Complexity : O(N)}
+\label{Space Complexity}
+\end{figure}
 
 \begin{thebibliography}{00}
-\bibitem{b1} https://www.geeksforgeeks.org/\\
-\bibitem{b2}  https://www.stackoverflow.com/
+\bibitem{b1}{Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald Rivest, Clifford Stein}\\
+\bibitem{b2}{Introduction to Design and Analysis of Algorithms by Anany Levitin}\\
+\bibitem{b3}{Algorithms by Robert Sedgewick and Kevin Wayne}
 \end{thebibliography}
 \vspace{12pt}
 

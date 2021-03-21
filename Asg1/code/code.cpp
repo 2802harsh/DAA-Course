@@ -6,7 +6,7 @@ int mergeTwoArrays(int arr[], int left, int mid, int right)
 {
     int temp[MAX_SIZE];
     int i, j, k;
-    int inv_count = 0;
+    int invCount = 0;
  
     i = left; 
     j = mid;
@@ -17,7 +17,7 @@ int mergeTwoArrays(int arr[], int left, int mid, int right)
         }
         else {
             temp[k++] = arr[j++];
-            inv_count = inv_count + (mid - i);
+            invCount = invCount + (mid - i);
         }
     }
     while (i <= mid - 1)
@@ -27,20 +27,20 @@ int mergeTwoArrays(int arr[], int left, int mid, int right)
     for (i = left; i <= right; i++)
         arr[i] = temp[i];
  
-    return inv_count;
+    return invCount;
 }
 
 int enhancedMergeSort(int arr[], int left, int right)
 {
 
-    int mid, inv_count = 0;
+    int mid, invCount = 0;
     if (right > left) {
         mid = (right + left) / 2;
-        inv_count += enhancedMergeSort(arr, left, mid);
-        inv_count += enhancedMergeSort(arr, mid + 1, right);
-        inv_count += mergeTwoArrays(arr, left, mid + 1, right);
+        invCount += enhancedMergeSort(arr, left, mid);
+        invCount += enhancedMergeSort(arr, mid + 1, right);
+        invCount += mergeTwoArrays(arr, left, mid + 1, right);
     }
-    return inv_count;
+    return invCount;
 }
 
 int main()
