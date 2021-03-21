@@ -52,14 +52,21 @@ Consider an array A, and two indices _i_ and _j_, such that _i_ < _j_ and __A[i]
 ---
 
 ### Analysis
+__Space Complexity__<br>
+In process of counting inversions, we are also sorting the input array as the algorithm demands this. If we wish to retain the original array we do need an auxiliary array which is the copy of the input array . Thus, the space complexity will be __O(N)__
 
-**Time Complexity**
-
-
-**Space Complexity**
+__Time Complexity__ <br>
+In the __Divide and Conquer__ algorithm , the input array is divided into two halves each time it is processed.
+As such it can be expressed with following recurrence relation,
+T(n) = 2T(n/2) + ⊖(n).
+Now assuming that at each step the array is divided into exactly two halves, the maximum depth we will get will be log<sub>2</sub>(N)
+Hence, time complexity for the same is  __O(Nlog(N))__
 
 
 ---
 
 ### References
 
+- Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald Rivest, Clifford Stein
+- Introduction to Design and Analysis of Algorithms by Anany Levitin
+- Algorithms by Robert Sedgewick and Kevin Wayne
