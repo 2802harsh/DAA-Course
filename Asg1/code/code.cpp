@@ -2,9 +2,10 @@
 using namespace std;
 #define MAX_SIZE 100005
 
+int temp[MAX_SIZE];
+
 int mergeTwoArrays(int arr[], int left, int mid, int right)
 {
-    int temp[MAX_SIZE];
     int i, j, k;
     int invCount = 0;
  
